@@ -3,7 +3,7 @@
 import os,sys
 
 #iterate over the directory and go pocket directory by pocket directory
-for r,d,f in os.walk(os.getcwd):
+for r,d,f in os.walk(os.getcwd()):
 	for dire in d:
 		if dire == "pocket1" or dire == "pocket2" or dire == "pocket3":
 			#print what pocket directory is being looked at
