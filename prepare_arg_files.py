@@ -74,7 +74,7 @@ for r,d,f in os.walk(os.getcwd()):
 
 			#run Rosetta
 			#we now have the args file written, now call Rosetta discovery
-			os.system("singularity exec --bind " + test_params_dir + ":" + input_test_params_dir + " --bind " + os.getcwd() + "/args:/input/args --bind " + target_pdb + ":" + input_target_pdb + " --bind " + motifs_file + ":" + input_motifs_file + " /pi/summer.thyme-umw/enamine-REAL-2.6billion/rosetta_condensed_6_25_2024.sif /rosetta/source/bin/ligand_discovery_search_protocol.linuxgccrelease @/input/args")
+			os.system("bsub -q long -W 96:00 -u \"\" -R \"rusage[mem=10000]\" \"singularity exec --bind " + test_params_dir + ":" + input_test_params_dir + " --bind " + os.getcwd() + "/args:/input/args --bind " + target_pdb + ":" + input_target_pdb + " --bind " + motifs_file + ":" + input_motifs_file + " /pi/summer.thyme-umw/enamine-REAL-2.6billion/rosetta_condensed_6_25_2024.sif /rosetta/source/bin/ligand_discovery_search_protocol.linuxgccrelease @/input/args\"")
 
 			#move all pdb files to a placements directory
 			os.system("mkdir placements")
@@ -84,10 +84,10 @@ for r,d,f in os.walk(os.getcwd()):
 			os.chdir("placements")
 
 			#rename each pdb file by prepending the anchor residue string used by this script
-			for r,d,f in os.walk(os.getcwd()):
-				for file in f:
-					if file.endswith(".pdb") and r == os.getcwd():
-						os.system("mv " + file + " res" + anchor_residue_string + "_" + file)
+			#for r,d,f in os.walk(os.getcwd()):
+			#	for file in f:
+			#		if file.endswith(".pdb") and r == os.getcwd():
+			#			os.system("mv " + file + " res" + anchor_residue_string + "_" + file)
 
 			#now, call the placement analysis script
 			os.system("python /pi/summer.thyme-umw/enamine-REAL-2.6billion/umass_chan_REAL-M_platform/rosetta/score_placed_ligands_with_filtering.py")
