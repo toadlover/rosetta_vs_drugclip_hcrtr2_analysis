@@ -27,6 +27,11 @@ for r,d,f in os.walk(os.getcwd()):
 	for dire in d:
 		#if the dire is at the r level, work with it
 		if r == os.getcwd():
+			
+			#temporary test limit for only running on dire Z1840327359
+			if dire != "Z1840327359":
+				continue
+
 			os.chdir(dire)
 
 			test_params_dir = r + "/" + dire + "test_params/"
