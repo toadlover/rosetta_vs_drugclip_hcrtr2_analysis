@@ -61,7 +61,7 @@ for r,d,f in os.walk(os.getcwd()):
 			args_file.write("#mapped test_params directory\n")
 			args_file.write("-params_directory_path " + input_test_params_dir + "\n")
 			args_file.write("#rosetta-indexed anchor residue index/indices\n")
-			args_file.write("-protein_discovery_locus 500 \n")
+			args_file.write("-protein_discovery_locus 477 \n")
 			args_file.write("#fa_atr cutoff\n")
 			args_file.write("-fa_atr_cutoff = -2 \n")
 			args_file.write("#fa_rep cutoff\n")
