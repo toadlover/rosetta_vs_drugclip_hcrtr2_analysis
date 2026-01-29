@@ -34,7 +34,7 @@ for r,d,f in os.walk(os.getcwd()):
 
 			os.chdir(dire)
 
-			test_params_dir = r + "/" + dire + "test_params/"
+			test_params_dir = r + "/" + dire + "/test_params/"
 
 			#write an arg file
 			args_file = open("args","w")
