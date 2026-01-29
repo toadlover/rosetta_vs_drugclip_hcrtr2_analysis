@@ -28,9 +28,11 @@ for r,d,f in os.walk(os.getcwd()):
 		#if the dire is at the r level, work with it
 		if r == os.getcwd():
 			
+			print(dire)
+
 			#temporary test limit for only running on dire Z1840327359
-			if dire != "Z1840327359":
-				continue
+			#if dire != "Z1840327359":
+			#	continue
 
 			os.chdir(dire)
 
@@ -71,6 +73,9 @@ for r,d,f in os.walk(os.getcwd()):
 
 			#close the file
 			args_file.close()
+
+			#remove any existing pdb file
+			os.system("rm -drf *.pdb")
 
 			#run Rosetta
 			#we now have the args file written, now call Rosetta discovery
