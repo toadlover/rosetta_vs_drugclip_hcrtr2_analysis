@@ -122,7 +122,7 @@ for r,d,f in os.walk(root_location):
 						distance = ((r_com[0] - dc_com[0])**2 + (r_com[1] - dc_com[1])**2 + (r_com[2] - dc_com[2])**2) ** 0.5
 
 						#append placement data
-						placements_data.append(file,ddg,distance)
+						placements_data.append([file,ddg,distance])
 
 			#write the sorted placements to a file
 			placements_data_file = open(root_location + "/input_data/pocket1/" + dire + "/" + dire +"_placements_data.csv","w")
