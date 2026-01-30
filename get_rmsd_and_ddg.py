@@ -135,10 +135,12 @@ for r,d,f in os.walk(root_location):
 				summary_file.write(dire + ",n.a.,n.a.,n.a.\n")
 				continue
 
+			print(placements_data)
 
 			#sort the placements data to have the lowest ddg first
 			sorted_placements = sorted(placements_data, key=lambda x: x[1])
 
+			print(sorted_placements)
 
 			for placement in sorted_placements:
 				placements_data_file.write(str(sorted_placements[0]) + "," + str(sorted_placements[1]) + "," + str(sorted_placements[2]) + "\n")
