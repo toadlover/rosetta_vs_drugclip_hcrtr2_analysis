@@ -1,0 +1,22 @@
+## the atom_type_set and mm-atom_type_set to be used for the subsequent parameter
+TYPE_SET_MODE full_atom
+ATOM_TYPE_SET fa_standard
+ELEMENT_SET default
+MM_ATOM_TYPE_SET fa_standard
+ORBITAL_TYPE_SET fa_standard
+## Params files
+ZINC000016735053_7.params
+ZINC000016735053_8.params
+ZINC000016735053_9.params
+ZINC000016735053_10.params
+ZINC000016735053_11.params
+ZINC000016735053_12.params
+ZINC000016735053_13.params
+ZINC000016735053_14.params
+ZINC000016735053_15.params
+ZINC000016735053_1.params
+ZINC000016735053_2.params
+ZINC000016735053_3.params
+ZINC000016735053_4.params
+ZINC000016735053_5.params
+ZINC000016735053_6.params

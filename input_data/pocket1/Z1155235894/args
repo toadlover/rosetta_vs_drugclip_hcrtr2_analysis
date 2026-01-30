@@ -1,0 +1,24 @@
+#keep seed constant
+-constant_seed 1
+#ignore unrecognized residues to help mitigate crashes
+-ignore_unrecognized_res
+#handle ligand repeats if using multiple anchor residues, will otherwise crash without this flag
+-in::file::override_database_params true
+#constrain coordinates
+-constrain_relax_to_start_coords
+#keep all placements; 0 means keep all, any other integer means keep up to that integer
+-best_pdbs_to_keep 0
+#mapped protein system
+-s /input/4s0v_receptor_only_dc_aligned.pdb
+#mapped motifs file
+-motif_filename /input/FINAL_motifs_list_filtered_2_3_2023.motifs
+#mapped test_params directory
+-params_directory_path /input/test_params/
+#rosetta-indexed anchor residue index/indices
+-protein_discovery_locus 227 
+#fa_atr cutoff
+-fa_atr_cutoff = -2 
+#fa_rep cutoff
+-fa_rep_cutoff = 150 
+#ddg cutoff
+-ddg_cutoff = -9 

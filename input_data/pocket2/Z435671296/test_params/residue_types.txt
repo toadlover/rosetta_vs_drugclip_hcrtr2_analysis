@@ -1,0 +1,22 @@
+## the atom_type_set and mm-atom_type_set to be used for the subsequent parameter
+TYPE_SET_MODE full_atom
+ATOM_TYPE_SET fa_standard
+ELEMENT_SET default
+MM_ATOM_TYPE_SET fa_standard
+ORBITAL_TYPE_SET fa_standard
+## Params files
+Z435671296_10.params
+Z435671296_11.params
+Z435671296_12.params
+Z435671296_13.params
+Z435671296_14.params
+Z435671296_15.params
+Z435671296_1.params
+Z435671296_2.params
+Z435671296_3.params
+Z435671296_4.params
+Z435671296_5.params
+Z435671296_6.params
+Z435671296_7.params
+Z435671296_8.params
+Z435671296_9.params

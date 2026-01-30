@@ -1,0 +1,18 @@
+## the atom_type_set and mm-atom_type_set to be used for the subsequent parameter
+TYPE_SET_MODE full_atom
+ATOM_TYPE_SET fa_standard
+ELEMENT_SET default
+MM_ATOM_TYPE_SET fa_standard
+ORBITAL_TYPE_SET fa_standard
+## Params files
+PV-002032794616_10.params
+PV-002032794616_11.params
+PV-002032794616_1.params
+PV-002032794616_2.params
+PV-002032794616_3.params
+PV-002032794616_4.params
+PV-002032794616_5.params
+PV-002032794616_6.params
+PV-002032794616_7.params
+PV-002032794616_8.params
+PV-002032794616_9.params
