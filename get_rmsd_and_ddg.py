@@ -97,7 +97,7 @@ for r,d,f in os.walk(root_location):
 
 							#grab the ddg
 							if line_stripped.startswith("Scoring: Post-HighResDock system ddG:"):
-								ddg = float(line_stripped.split([len(line_stripped.split()) - 1]))
+								ddg = float(line_stripped.split()[len(line_stripped.split()) - 1])
 
 						#derive the com
 						r_x = 0
