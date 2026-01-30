@@ -10,6 +10,10 @@ summary_file = open("pocket1_best_rosetta_placements.csv", "w")
 #header
 summary_file.write("system,best_all,best_10,best_1\n")
 
+#proximity counter for the number of systems within 2 angstroms, withing 2-5 angstroms and beyond 5 angstroms for the closest placements for ddg cutoffs
+#a 3x3 array to note counts by system for the closest placement to drugclip in the 3 energy fliters
+proximity_counter = [[0,0,0],[0,0,0],[0,0,0]]
+
 #root location
 root_location = os.getcwd()
 
@@ -160,5 +164,32 @@ for r,d,f in os.walk(root_location):
 			#write to the file
 			summary_file.write(dire + "," + str(best_dist_all) + "," + str(best_dist_10) + "," + str(best_dist_1) + "\n")
 
+			#adjust the proximity counter
 
+			if best_dist_all <= 2:
+				proximity_counter[0][0] = proximity_counter[0][0] + 1
+			if best_dist_all > 2 and best_dist_all <= 5:
+				proximity_counter[0][1] = proximity_counter[0][1] + 1
+			if best_dist_all > 5:
+				proximity_counter[0][2] = proximity_counter[0][2] + 1
 
+			if best_dist_10 <= 2:
+				proximity_counter[1][0] = proximity_counter[1][0] + 1
+			if best_dist_10 > 2 and best_dist_10 <= 5:
+				proximity_counter[1][1] = proximity_counter[1][1] + 1
+			if best_dist_10 > 5:
+				proximity_counter[1][2] = proximity_counter[1][2] + 1
+
+			if best_dist_1 <= 2:
+				proximity_counter[2][0] = proximity_counter[2][0] + 1
+			if best_dist_1 > 2 and best_dist_1 <= 5:
+				proximity_counter[2][1] = proximity_counter[2][1] + 1
+			if best_dist_1 > 5:
+				proximity_counter[2][2] = proximity_counter[2][2] + 1
+
+#print the proximities
+proximity_file = open("closest_placements_summary.csv", "w")
+proximity_file.write(",0-2A,2-5A,>5A\n")
+proximity_file.write("best_all," + str(proximity_counter[0][0]) + "," + str(proximity_counter[0][1]) + "," + str(proximity_counter[0][2]) + "\n")
+proximity_file.write("best_10," + str(proximity_counter[1][0]) + "," + str(proximity_counter[1][1]) + "," + str(proximity_counter[1][2]) + "\n")
+proximity_file.write("best_1," + str(proximity_counter[2][0]) + "," + str(proximity_counter[2][1]) + "," + str(proximity_counter[2][2]) + "\n")
