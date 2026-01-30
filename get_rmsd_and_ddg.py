@@ -133,6 +133,7 @@ for r,d,f in os.walk(root_location):
 			#behavior for if there were no placements
 			if len(placements_data) == 0:
 				summary_file.write(dire + ",n.a.,n.a.,n.a.\n")
+				continue
 
 
 			#sort the placements data to have the lowest ddg first
