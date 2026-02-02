@@ -30,9 +30,9 @@ for r,d,f in os.walk(os.getcwd()):
 			
 			print(dire)
 
-			#temporary test limit for only running on dire Z1840327359
-			#if dire != "Z1840327359":
-			#	continue
+			#temporary test limit for only running on dire PV-001798685621
+			if dire != "PV-001798685621":
+				continue
 
 			os.chdir(dire)
 
@@ -70,6 +70,15 @@ for r,d,f in os.walk(os.getcwd()):
 			args_file.write("-fa_rep_cutoff = 150 \n")
 			args_file.write("#ddg cutoff\n")
 			args_file.write("-ddg_cutoff = -9 \n")
+
+			#add in to pull motifs data with a cutoff
+			args_file.write("-collect_motifs_from_placed_ligand true \n")
+			args_file.write("-minimum_motifs_formed_cutoff 6 \n")
+			args_file.write("-check_if_ligand_motifs_match_real true \n")
+			args_file.write("-duplicate_dist_cutoff 1.2 \n")
+			args_file.write("-duplicate_angle_cutoff 0.45 \n")
+			args_file.write("-minimum_ratio_of_real_motifs_from_ligand 0.01 \n")
+
 
 			#close the file
 			args_file.close()
