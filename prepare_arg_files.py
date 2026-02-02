@@ -31,8 +31,8 @@ for r,d,f in os.walk(os.getcwd()):
 			print(dire)
 
 			#temporary test limit for only running on dire PV-001798685621
-			if dire != "PV-001798685621":
-				continue
+			#if dire != "PV-001798685621":
+			#	continue
 
 			os.chdir(dire)
 
