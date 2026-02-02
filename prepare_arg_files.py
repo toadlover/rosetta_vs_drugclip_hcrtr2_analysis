@@ -78,6 +78,7 @@ for r,d,f in os.walk(os.getcwd()):
 			args_file.write("-duplicate_dist_cutoff 1.2 \n")
 			args_file.write("-duplicate_angle_cutoff 0.45 \n")
 			args_file.write("-minimum_ratio_of_real_motifs_from_ligand 0.01 \n")
+			args_file.write("-output_motifs_as_pdb false \n")
 
 
 			#close the file
