@@ -58,7 +58,7 @@ sorted_placements = sorted(top_placements_all, key=lambda x: x[0])
 #write to file
 write_file = open("top_pocket1_placements/top_placements_list.csv", "w")
 
-write_file.write("top_placements_all\n")
+write_file.write("file,ddg,distance,real_motif_ratio\n")
 
 for placement in sorted_placements:
 	write_file.write(str(placement[0]) + "," + str(placement[1]) + "," + str(placement[2]) + "," + str(placement[3]) + "\n")
