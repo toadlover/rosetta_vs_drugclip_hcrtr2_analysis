@@ -76,7 +76,8 @@ for r,d,f in os.walk(root_location):
 			for r2,d2,f2 in os.walk(root_location + "/input_data/pocket1/" + dire):
 				for file in f2:
 					if file.startswith("4s0v_receptor_only_dc_aligned_") and dire in file and file.endswith(".pdb"):
-						#set up values to hold the ddg and atom coordinates
+						#set up values to hold the ddg, real motif ratio, and atom coordinates
+						real_motif_ratio = "n.a."
 						ddg = 0
 
 						r_atom_coords = []
@@ -98,6 +99,10 @@ for r,d,f in os.walk(root_location):
 							#grab the ddg
 							if line_stripped.startswith("Scoring: Post-HighResDock system ddG:"):
 								ddg = float(line_stripped.split()[len(line_stripped.split()) - 1])
+
+							#grab the real motif ratio
+							if line_stripped.startswith("Placement motifs: Real motif ratio:"):
+								real_motif_ratio = float(line_stripped.split()[len(line_stripped.split()) - 1])
 
 						#derive the com
 						r_x = 0
@@ -122,17 +127,17 @@ for r,d,f in os.walk(root_location):
 						distance = ((r_com[0] - dc_com[0])**2 + (r_com[1] - dc_com[1])**2 + (r_com[2] - dc_com[2])**2) ** 0.5
 
 						#append placement data
-						placements_data.append([file,ddg,distance])
+						placements_data.append([file,ddg,distance,real_motif_ratio])
 
 			#write the sorted placements to a file
 			placements_data_file = open(root_location + "/input_data/pocket1/" + dire + "/" + dire +"_placements_data.csv","w")
 			#write a header
-			placements_data_file.write("file,ddg,distance\n")
+			placements_data_file.write("file,ddg,distance,real_motif_ratio\n")
 
 
 			#behavior for if there were no placements
 			if len(placements_data) == 0:
-				summary_file.write(dire + ",n.a.,n.a.,n.a.\n")
+				summary_file.write(dire + ",n.a.,n.a.,n.a.,n.a.\n")
 				continue
 
 			#print(placements_data)
@@ -143,7 +148,7 @@ for r,d,f in os.walk(root_location):
 			#print(sorted_placements)
 
 			for placement in sorted_placements:
-				placements_data_file.write(str(placement[0]) + "," + str(placement[1]) + "," + str(placement[2]) + "\n")
+				placements_data_file.write(str(placement[0]) + "," + str(placement[1]) + "," + str(placement[2]) + "," + str(placement[3]) + "\n")
 
 			#determine the best placement by distance out of all, top 10 ddg, and top ddg
 			best_dist_all = 100
