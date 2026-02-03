@@ -18,7 +18,7 @@ for r,d,f in os.walk(os.getcwd()):
 		#a counter to determine if the number of placements kept for a ligand has exceeded 3, will reset to 0 here
 		placements_kept = 0
 
-		if file.endswith("_placements_data.csv") and file.split("_")[0] in root and "input_data/pocket1" in root:
+		if file.endswith("_placements_data.csv") and file.split("_")[0] in r and "input_data/pocket1" in r:
 			#read the file and get up to the top 3
 			read_file = open(r + "/" + file,"r")
 			for line in read_file.readlines():
