@@ -1,5 +1,2 @@
-file,ddg,distance
-4s0v_receptor_only_dc_aligned_PV-002023524098_5_0.pdb,-15.254246,3.625639837691146
-4s0v_receptor_only_dc_aligned_PV-002023524098_6_0.pdb,-14.384387,7.129913545344125
-4s0v_receptor_only_dc_aligned_PV-002023524098_3_0.pdb,-14.061326,10.982368741816341
-4s0v_receptor_only_dc_aligned_PV-002023524098_7_0.pdb,-10.210802,6.660112990216382
+file,ddg,distance,real_motif_ratio
+4s0v_receptor_only_dc_aligned_PV-002023524098_7_0.pdb,-10.210802,6.660112990216382,0.1
